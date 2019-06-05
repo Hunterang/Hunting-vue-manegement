@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function ads() {
+      return new Promise( (resolve) => {
+        setTimeout( ()=> {
+          resolve('kongzhi')
+        },5000)
+      })
+    }
+     function sss (v) {
+      this.resolve = function (val) {
+        this.value = val
+      }
+      v(this.resolve)
+
+      return this.value
+    }
+
+      async function test () {
+        var t = await new sss((resolve) => {
+          setTimeout( ()=> {
+            resolve('kongzhi')
+          },5000)
+        })
+        console.log(t);
+
+        console.log(3);
+      }
+      test()
+    </script>
+  </body>
+</html>

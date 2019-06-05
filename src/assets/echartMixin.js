@@ -1,0 +1,8 @@
+const mixins = {
+  mounted() {
+
+  },
+  beforedestroyed() {
+
+  }
+}

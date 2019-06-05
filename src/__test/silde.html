@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    .page {
+      height: 800px;
+      /* background: #999; */
+      z-index: -10;
+    }
+    ul {
+      list-style: none;
+      width: 200px;
+    }
+    .test {
+      height: 60px;
+      transition: 1s;
+      /* background: #ccc; */
+      position: relative;
+      border: 1px solid #eee;
+    }
+    .test_ul {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      display: none;
+    }
+    .test_ul>li {
+      height: 60px;
+    }
+    .act {
+      height: 400px;
+    }
+    p {
+      margin:0;
+      height: 60px;
+      width: 100%;
+      background: #eee;
+    }
+    /* .bc {
+      background: #eee;
+    } */
+  </style>
+  <body>
+    <div class="page">
+      <ul class="bc">
+        <li class="test">
+          <p>hello world</p>
+          <ul class="test_ul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </li>
+        <li class="test"><p>hello world</p></li>
+        <li class="test"><p>hello world</p></li>
+        <li class="test"><p>hello world</p></li>
+        <li class="test"><p>hello world</p></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+    document.querySelector('.test').onclick = function() {
+      let c = this.children[1]
+      console.log(c);
+      c.style.display = 'block'
+      let h = window.getComputedStyle(c,null)['height']
+      this.style.height = parseInt(this.offsetHeight)+parseInt(h) +'px'
+    }
+    </script>
+  </body>
+</html>
