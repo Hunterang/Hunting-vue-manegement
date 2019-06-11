@@ -22,4 +22,19 @@ class Store {
   }
 }
 var cookie = new Store()
-export { cookie }
+
+function debounce (fn,time) {
+  let timer = null
+  clearTimeout(timer)
+  timer = setTimeout(() => {
+    fn()
+  },time)
+}
+
+
+
+
+
+
+
+export { cookie,debounce }

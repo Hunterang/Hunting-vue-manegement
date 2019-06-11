@@ -22,25 +22,33 @@
         </div>
       </contdown>
     </div>
+    <div class="dash_chart_container">
+      <linechart></linechart>
+    </div>
   </div>
 </template>
 
 <script>
   import contdown from '@/components/countdown'
+  import linechart from '@/components/echartsvue/lineChart'
   export default {
     name: 'dashborder',
-    components: { contdown }
+    components: { contdown,linechart }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
   .me_dash {
     width: inherit;
+    display: block;
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    background: linear-gradient(to bottom,rgba(20,20,30,.1),rgba(250,250,250,0));
     .dash_top_container {
       padding-right: 10px;
       margin-top: 10px;
+      overflow: hidden;
     }
     .slot_icon {
       position: absolute;
@@ -62,5 +70,32 @@
         background: #336655;
       }
     }
+    .dash_chart_container {
+      background: #fff;
+      margin:0 auto;
+      padding-top: 10px;
+      margin-top: 20px;
+      width: calc(100% - 20px);
+      box-sizing: border-box;
+      height: 300px;
+      animation: up 1s 1;
+      animation-fill-mode: forwards;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
   }
+  @keyframes up {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+
+
 </style>

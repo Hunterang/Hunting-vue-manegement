@@ -11,6 +11,10 @@
             <el-breadcrumb separator="/">
               <el-breadcrumb-item :to="{ path: '/main/dashborder' }">{{$t("menu.dashborder")}}</el-breadcrumb-item>
               <!-- <el-breadcrumb-item><a href="#">management</a></el-breadcrumb-item> -->
+              <!-- <el-breadcrumb-item
+              v-for='menu,index in menuArr'
+              :key = 'index'
+              >{{menu}}</el-breadcrumb-item> -->
               <el-breadcrumb-item >{{this.$route.name}}</el-breadcrumb-item>
               <!-- <div class="" v-for = 'item,index in cake' :key='index'>
                 <el-breadcrumb-item >{{item.name}}</el-breadcrumb-item>
@@ -30,13 +34,13 @@
           </div>
           <div class="log_out" @click='handleLogout($event)'>
             <div class="logout_list" v-if='isShow'>
+              <p>welcome admin</p>
               <p @click = 'handleBack()'>退出</p>
             </div>
           </div>
         </div>
       </div>
     <div class="header_btm_list">
-
     </div>
   </div>
 </template>
@@ -53,6 +57,10 @@ export default {
   computed: {
     unFold() {
       return this.$store.getters.isFold
+    },
+    menuArr() {
+      let arr = this.$store.getters.menu || '[]'
+      return JSON.parse(arr)
     }
   },
   mounted() {
@@ -141,33 +149,51 @@ export default {
           width: 50px;
           float: right;
           border-radius: 25px;
-          background: #777888;
+          background: url('/static/1.png') no-repeat;
           background-size: 100%;
+          // filter: contrast(50%);
+          background-size: 100% 100%;
           margin-right: 50px;
           position: relative;
           .logout_list {
             font-size: 14px;
             position: absolute;
-            width: 80px;
+            width: 120px;
             padding: 10px;
             box-sizing: border-box;
             top: 60px;
+            right: 0;
             height: 120px;
-            z-index: 10;
+            z-index: 100;
             background: #fff;
             box-shadow: 0 0 5px #caffff;
             border: 1px solid #ccc;
             border-radius:4px;
+            opacity: .5;
+            animation: opst 1s 1;
+            animation-fill-mode: forwards;
             &:after {
               position: absolute;
               content: '';
               top: -6px;
+              right: 20px;
               width: 10px;
               height: 10px;
               transform: rotateZ(135deg);
               border-left: 1px solid #ccc;
               border-bottom: 1px solid #ccc;
               background: #fff;
+            }
+            p {
+              border-bottom: 1px solid #eee;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              animation: up 1s 1;
+              animation-fill-mode: forwards;
+              &:hover{
+                color:#999888;
+              }
             }
           }
         }
@@ -181,6 +207,21 @@ export default {
       }
     }
     .header_btm_list {
+    }
+  }
+  @keyframes opst {
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes up {
+    0% {
+      opacity: 0.5;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

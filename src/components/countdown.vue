@@ -56,6 +56,9 @@ export default {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    // background: linear-gradient(135deg,rgba(200,80,78,.3) 4%,rgba(70,85,100,.4) 90%);
+    // box-shadow: 0 0 8px rgba(25,78,200,1) inset;
+    background: #fff;
     &>div {
       flex: 1;
       height: inherit;

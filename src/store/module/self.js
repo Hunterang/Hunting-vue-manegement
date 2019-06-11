@@ -4,7 +4,8 @@ const self = {
   state: {
     languge: cookie.getCookie('languge')||'en',
     token:cookie.getCookie('token') ||'',
-    isFold: false
+    isFold: false,
+    menu: cookie.getCookie('menu') || ''
   },
   mutations: {
     setLanguge(state,str) {
@@ -17,6 +18,10 @@ const self = {
     },
     setIsFold(state,str) {
       state.isFold = str
+    },
+    setMenu(state,val) {
+      state.menu = val
+      cookie.setCookie('menu',val,1)
     }
   },
   actions: {
@@ -30,7 +35,8 @@ const self = {
   getters: {
     getLanguge: state => state.languge,
     token: state => state.token,
-    isFold: state => state.isFold
+    isFold: state => state.isFold,
+    menu: state => state.menu
   }
 }
 

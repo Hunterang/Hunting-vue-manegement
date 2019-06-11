@@ -12,6 +12,9 @@ export default {
   },
   menu: {
     dashborder: 'Dashborder',
-    tool: 'tool'
+    tool: 'tool',
+    setting: 'setting',
+    edit: 'edit',
+    items: 'items'
   }
 }

@@ -12,6 +12,9 @@ export default {
   },
   menu: {
     dashborder: '主界面',
-    tool: '工具'
+    tool: '工具',
+    setting: '设置',
+    items: '商品信息',
+    edit: '编辑'
   }
 }
