@@ -224,4 +224,16 @@ export default {
       transform: translateY(0);
     }
   }
+  @media screen and(max-width: 650px) {
+  .header_right {
+    width: auto !important;
+    float: right !important;
+    .header_icon {
+      display: none !important;
+    }
+    .log_out {
+      margin-right: 10px !important;
+    }
+  }
+}
 </style>
